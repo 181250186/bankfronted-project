@@ -3,7 +3,6 @@
     display: inline-block;
     height: 45px;
     width: 45px;
-    
     vertical-align: middle;
   }
 
