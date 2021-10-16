@@ -17,7 +17,6 @@
     },
       methods: {
       //TODO:模拟数据
-
     },
   }
 </script>
