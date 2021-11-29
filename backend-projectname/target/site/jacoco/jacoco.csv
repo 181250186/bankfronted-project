@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+example,com.se3.example,ExampleApplication,5,3,0,0,2,1,1,1,1,1
+example,com.se3.example.entity,Person,212,0,38,0,5,0,32,0,13,0
+example,com.se3.example.Config,cors,0,41,0,0,0,7,0,2,0,2
+example,com.se3.example.controller,PersonHandler,4,3,0,0,1,1,1,1,1,1
