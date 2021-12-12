@@ -1165,7 +1165,7 @@
                       iconSize=4;
                       break;
                     }
-                    case 25:{
+                    case 50:{
                       iconSize=12;
                       break;
                     }
