@@ -143,10 +143,10 @@
                   </el-form-item>
                   <el-form-item label="节点类型">
                     <el-select v-model="node_form.classes" placeholder="选择节点类型">
-                      <el-option label="classes-A" value="classes-A"></el-option>
-                      <el-option label="classes-B" value="classes-B"></el-option>
-                      <el-option label="classes-C" value="classes-C"></el-option>
-                      <el-option label="classes-D" value="classes-D"></el-option>
+                     <el-option label="green" value="classes-A"></el-option>
+                      <el-option label="purple" value="classes-B"></el-option>
+                      <el-option label="blue" value="classes-C"></el-option>
+                      <el-option label="red" value="classes-D"></el-option>
                     </el-select>
                   </el-form-item>
                 </el-form>
@@ -163,9 +163,9 @@
                   </el-form-item>
                   <el-form-item label="关系类型">
                     <el-select v-model="relation_form.classes" placeholder="选择关系类型">
-                      <el-option label="relationA" value="relationA"></el-option>
-                      <el-option label="relationB" value="relationB"></el-option>
-                      <el-option label="relationC" value="relationC"></el-option>
+                     <el-option label="solid" value="relationA"></el-option>
+                      <el-option label="dotted" value="relationB"></el-option>
+                      <el-option label="hidden" value="relationC"></el-option>
                     </el-select>
                   </el-form-item>
                 </el-form>
@@ -188,8 +188,8 @@
                   </el-form-item>
                   <el-form-item label="关系类型">
                     <el-select v-model="relation_form.classes" placeholder="选择关系类型">
-                      <el-option label="relationA" value="relationA"></el-option>
-                      <el-option label="relationB" value="relationB"></el-option>
+                     <el-option label="solid" value="relationA"></el-option>
+                      <el-option label="dotted" value="relationB"></el-option>
                     </el-select>
                   </el-form-item>
                 </el-form>
@@ -206,10 +206,10 @@
                   </el-form-item>
                   <el-form-item label="节点类型">
                     <el-select v-model="node_form.classes" placeholder="选择节点类型">
-                      <el-option label="classes-A" value="classes-A"></el-option>
-                      <el-option label="classes-B" value="classes-B"></el-option>
-                      <el-option label="classes-C" value="classes-C"></el-option>
-                      <el-option label="classes-D" value="classes-D"></el-option>
+                      <el-option label="green" value="classes-A"></el-option>
+                      <el-option label="purple" value="classes-B"></el-option>
+                      <el-option label="blue" value="classes-C"></el-option>
+                      <el-option label="red" value="classes-D"></el-option>
                     </el-select>
                   </el-form-item>
                 </el-form>
@@ -785,7 +785,7 @@
                   });
                   this.relation_form.data.source = s;
                   this.relation_form.data.target = t;
-                  if (this.relation_form.data.source == -1 || this.relation_form.data.target == -1) {
+                  if (this.relation_form.data.source == '' || this.relation_form.data.target == '') {
                     this.addSon_Visible = false;
                     alert("请输入正确的节点名称！")
                     return -1;
@@ -852,6 +852,7 @@
                   const that = this;
                   this.$cy.batch(() => {
                     that.node_form.data.id = ele;
+                     that.node_form.data.name = ele;
                     that.dialogVisible = true;
                   });
                   this.$cy.endBatch();
@@ -878,6 +879,7 @@
                 modify_relation(ele) {
                   let element = this.$cy.getElementById(ele);
                   this.dialogRelation_Visible = true;
+                  this.relation_form.data.name = element.data().name;
                   this.relation_form.data.id = element.data().id;
                   this.relation_form.data.source = element.data().source;
                   this.relation_form.data.target = element.data().target;
