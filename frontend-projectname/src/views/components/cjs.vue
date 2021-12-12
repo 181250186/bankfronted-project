@@ -1198,7 +1198,7 @@
                   this.editShowStyleVisible=false;
                 },
                 /***************************信息栏***********************/
-              /*  async getNumberOfNode(cid) {
+                async getNumberOfNode(cid) {
                   console.log("getNode here")
                   this.nodeNumber=await this.getNodeNumber(cid)
                 },
@@ -1206,7 +1206,7 @@
                 async getNumberOfEdge(cid) {
                   console.log("getEdge here")
                   this.edgeNumber=await this.getEdgeNumber(cid)
-                },*/
+                },
                 /***************************信息栏***********************/
 
 
