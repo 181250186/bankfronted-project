@@ -23,6 +23,7 @@
         "findChart"
       ]),
       //TODO:模拟数据
+
       async addEles() {
         this.data =await this.findChart(4);
         console.log(this.data);
