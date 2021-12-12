@@ -1199,12 +1199,12 @@
                 },
                 /***************************信息栏***********************/
                 async getNumberOfNode(cid) {
-                  console.log("getNode here")
+                  //console.log("getNode here")
                   this.nodeNumber=await this.getNodeNumber(cid)
                 },
 
                 async getNumberOfEdge(cid) {
-                  console.log("getEdge here")
+                  //console.log("getEdge here")
                   this.edgeNumber=await this.getEdgeNumber(cid)
                 },
                 /***************************信息栏***********************/
