@@ -38,10 +38,10 @@ CREATE TABLE `chart`(
                       `cid` int(10) Not null AUTO_INCREMENT,
                       `name` varchar(255) not null,
                       primary key(`cid`)
-)=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8ENGINE
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `chart`(
+CREATE TABLE `user`(
                       `uid` int(10) Not null AUTO_INCREMENT,
                       `userName` varchar(255) not null,
                       `password` varchar(255) not null,
