@@ -1,3 +1,9 @@
+<template>
+  <div class="page">
+    <CJS ref="ref_CJS"></CJS>
+  </div>
+</template>
+
 <script>
   import CJS from './components/cjs';
   import {findChartAPI, saveChartAPI} from "@/api/chart";
