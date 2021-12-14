@@ -729,8 +729,8 @@
 
                     });
                     this.addNode_Visible = false;
-                    this.positionX += 50;
-                    this.positionY += 50;
+                    this.positionX += 0;
+                    this.positionY += 0;
                   }
                   this.node_form_update();
                 },
