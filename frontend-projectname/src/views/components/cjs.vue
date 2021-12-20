@@ -453,7 +453,7 @@
                   spotlightPadding: 10, //元素和聚光灯之间的额外间距(以像素为单位)
                   minSpotlightRadius: 10, // the minimum radius in pixels of the spotlight
                   maxSpotlightRadius: 14, // the maximum radius in pixels of the spotlight
-                  openMenuEvents: 'cxttapstart taphold', // space-separated cytoscape events that will open the menu; only `cxttapstart` and/or `taphold` work here
+                  openMenuEvents: 'cxttap', // space-separated cytoscape events that will open the menu; only `cxttapstart` and/or `taphold` work here
                   itemColor: 'red', // 各指令元素内字体颜色
                   itemTextShadowColor: 'green', // 各指令元素内字体阴影颜色
                   zIndex: 9999, // the z-index of the ui div
@@ -491,7 +491,7 @@
                   spotlightPadding: 10, //元素和聚光灯之间的额外间距(以像素为单位)
                   minSpotlightRadius: 10, // the minimum radius in pixels of the spotlight
                   maxSpotlightRadius: 14, // the maximum radius in pixels of the spotlight
-                  openMenuEvents: 'cxttapstart taphold', // space-separated cytoscape events that will open the menu; only `cxttapstart` and/or `taphold` work here
+                  openMenuEvents: 'cxttap', // space-separated cytoscape events that will open the menu; only `cxttapstart` and/or `taphold` work here
                   itemColor: 'red', // 各指令元素内字体颜色
                   itemTextShadowColor: 'green', // 各指令元素内字体阴影颜色
                   zIndex: 9999, // the z-index of the ui div
