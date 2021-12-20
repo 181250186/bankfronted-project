@@ -130,6 +130,12 @@
                     <Icon style="font-size: 32px; cursor: pointer;" title="文本导出" type="ios-document-outline" @click="exportFile()"/>
                   </div>
                 </div>
+                
+                <div class="tools">
+                  <div class="center-center">
+                    <Icon style="font-size: 32px; cursor: pointer;" title="教程" type="ios-text-outline" @click="teach=true"/>
+                  </div>
+              </div>
 
               </div>
               <div id="information" style="position: absolute; left: 5pt; top: 5pt; z-index: 2; background-color: white;font-size:25px">
@@ -288,6 +294,15 @@
                 <div slot="footer" class="dialog-footer">
                   <el-button @click="editNodeVisible = false">取 消</el-button>
                   <el-button type="primary" @click="addNodeStyle">确 定</el-button>
+                </div>
+              </el-dialog>
+              <el-dialog v-dialogDrag title="教程" :visible.sync="teach" :modal-append-to-body=false>
+                <div class="demo-image__lazy">
+                  <span style="font-size:15px">注：选中节点（关系）后右键鼠标进入辅助菜单，再次点击节点（关系）取消操作，如下图:</span>
+                  <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>
+                </div>
+                <div slot="footer" class="dialog-footer">
+                  <el-button @click="teach = false">确 认</el-button>
                 </div>
               </el-dialog>
               <el-dialog v-dialogDrag title="展示效果调节" :visible.sync="editShowStyleVisible" :modal-append-to-body=false>
@@ -578,6 +593,11 @@
                   searchDialogVisible3:false,
                   statisticVisible:false,
                   relation_index: 10,
+                  teach:false,
+                  urls: [
+                    'https://181250186reverse.oss-cn-beijing.aliyuncs.com/3.png',
+                    'https://181250186reverse.oss-cn-beijing.aliyuncs.com/4.png'
+                  ],
                   relation_form: {
                     group: 'edges',
                     //id根据获得的数据递增
@@ -984,21 +1004,33 @@
                  **/
 
                 delEle(ele) {
-                  this.$cy.startBatch();
-                  const that = this;
-                  this.$cy.batch(() => {
-                    let elements = this.$cy.getElementById(ele);
-                    that.deleted_array = this.find_relations(ele);
-                    if (elements.group() == "nodes") {
-                      this.delete_node_api(this.chartId, ele);
-                    } else {
-                      this.delete_relation_api(this.chartId, ele);
-                    }
-                    elements.remove();
+                  this.$confirm('此操作将导致删除, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                  }).then(() => {
+                    this.$cy.startBatch();
+                    const that = this;
+                    this.$cy.batch(() => {
+                      let elements = this.$cy.getElementById(ele);
+                      that.deleted_array = this.find_relations(ele);
+                      if (elements.group() == "nodes") {
+                        this.delete_node_api(this.chartId, ele);
+                      } else {
+                        this.delete_relation_api(this.chartId, ele);
+                      }
+                      elements.remove();
+                    });
+                    this.$cy.endBatch();
+                  }).catch(() => {
+                    this.$message({
+                      type: 'info',
+                      message: '已取消删除'
+                    });
                   });
-                  this.$cy.endBatch();
                 },
-
+                
+                
                 /**
                  * 根据节点找关系
                  * @param ele 某元素ID
