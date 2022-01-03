@@ -18,13 +18,14 @@ import java.util.List;
 public class EdgeHandler {
     @Autowired
      private  EdgeService edgeService;
+    @Autowired
+    EdgeRepository edgeRepository;
 
     @PostMapping("/add")
     public ResponseVO saveRelationAPI(@RequestBody JSONObject jsonObject){
         System.out.println(jsonObject);
         Edge edge=new Edge();
         JSONObject data=(JSONObject) JSONObject.toJSON(jsonObject.get("data"));
-
         edge.setClasses(jsonObject.get("classes").toString());
         edge.setName(data.get("name").toString());
         edge.setSource(data.get("source").toString());
