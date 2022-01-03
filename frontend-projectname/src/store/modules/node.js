@@ -14,7 +14,7 @@ const node={
       group: '',
       data: {},
       classes:'',
-      position:{x:0,y:0},
+      position:{x:50,y:50},
     },
     addNodeVisible:false,
     dialogVisible:false,
@@ -24,10 +24,10 @@ const node={
       group: '',
       data: {},
       classes:'',
-      position:{x:0,y:0}
+      position:{x:50,y:50}
     },
-    positionX:0,
-    positionY:0,
+    positionX:50,
+    positionY:50,
     nodeArray: [],
   },
   mutations:{

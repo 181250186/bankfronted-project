@@ -354,7 +354,7 @@ export default {
 
     this.$cy = cytoscape({
       // initial viewport state:
-      zoom: 1, // 图表的初始缩放级别.可以设置options.minZoom和options.maxZoom设置缩放级别的限制.
+      zoom: 3, // 图表的初始缩放级别.可以设置options.minZoom和options.maxZoom设置缩放级别的限制.
       pan: { x: 0, y: 0 }, // 图表的初始平移位置.
       // interaction options:
       minZoom: 1e-50, // 图表缩放级别的最小界限.视口的缩放比例不能小于此缩放级别.
@@ -605,14 +605,14 @@ export default {
         group: "nodes",
         data: { id: "", name: "" },
         classes: "",
-        position: { x: 0, y: 0 },
+        position: { x: 200, y: 100 },
         chartId: 4,
       },
       chart_form: {
         name: "",
       },
-      positionX: 0,
-      positionY: 0,
+      positionX: 200,
+      positionY: 100,
       relation_array: [],
       node_array: [],
       chartId: 4,
