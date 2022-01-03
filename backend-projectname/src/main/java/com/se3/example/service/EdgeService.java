@@ -32,4 +32,6 @@ public interface EdgeService {
     * */
     void delEdgeByNode(String name, Integer cid);
 
+    void updateEdge(Edge edge);
+
 }

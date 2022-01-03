@@ -29,8 +29,8 @@ class NodeServiceImplTest {
         node.setCid(4);
         node.setName("test");
         node.setClasses("classes-A");
-        node.setPositionX(0);
-        node.setPositionY(0);
+        node.setPositionX(0.0);
+        node.setPositionY(0.0);
         nodeService.addNode(node);
         int test=nodeRepository.findByName("test").getNid();
         System.out.println(test);

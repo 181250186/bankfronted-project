@@ -23,6 +23,8 @@ allowCredentials = "true")
 public class NodeHandler {
     @Autowired
     NodeService nodeService;
+    @Autowired
+    NodeRepository nodeRepository;
 
     @PostMapping("/add")
     public ResponseVO addNodeAPI(@RequestBody JSONObject jsonObject){
@@ -35,8 +37,8 @@ public class NodeHandler {
         node.setClasses(jsonObject.get("classes").toString());
         String name = data.get("name").toString();
         node.setName(name);
-        node.setPositionX((Integer) postion.get("x"));
-        node.setPositionY((Integer)postion.get("y"));
+        node.setPositionX(Double.valueOf(postion.get("x").toString()));
+        node.setPositionY(Double.valueOf(postion.get("y").toString()));
         node.setCid((Integer)jsonObject.get("chartId"));
         nodeService.addNode(node);
 
@@ -65,6 +67,23 @@ public class NodeHandler {
 
     @PostMapping("/update")
     public ResponseVO updateNode(@RequestBody JSONObject jsonObject){
-        return ResponseVO.buildSuccess();
+      System.out.println("update");
+      System.out.println(jsonObject);
+      Node node=new Node();
+      JSONObject data = (JSONObject) JSONObject.toJSON(jsonObject.get("data"));
+      JSONObject postion=(JSONObject) JSONObject.toJSON(jsonObject.get("position"));
+
+      node.setClasses(jsonObject.get("classes").toString());
+      String name = data.get("name").toString().replace("[","");
+      name=name.replace("]","");
+      name=name.replace("\"","");
+      System.out.println(name);
+      node.setName(name);
+      node.setPositionX(Double.valueOf(postion.get("x").toString()));
+      node.setPositionY(Double.valueOf(postion.get("y").toString()));
+      node.setCid((Integer)jsonObject.get("chartId"));
+      node.setNid(nodeRepository.findByName(data.get("id").toString()).getNid());
+      nodeService.update(node);
+      return ResponseVO.buildSuccess(node);
     }
 }

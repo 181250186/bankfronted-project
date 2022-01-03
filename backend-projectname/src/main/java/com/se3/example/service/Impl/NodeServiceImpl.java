@@ -23,7 +23,8 @@ public class NodeServiceImpl implements NodeService {
     public void addNode(Node node){
 //        System.out.println("come");
 //        System.out.println(node);
-        nodeRepository.save(node);
+        nodeRepository.saveAndFlush(node);
+        nodeRepository.flush();
     }
 
     @Override
@@ -40,15 +41,16 @@ public class NodeServiceImpl implements NodeService {
     public void delNode(String name, Integer cid){
 //        System.out.println("Node");
         Node node=nodeRepository.findNodeByNameAndCid(name,cid);
-//       System.out.println(node);
+       System.out.println(node);
         nodeRepository.deleteById(node.getNid());
-//       System.out.println("node over");
+       System.out.println("node over");
         edgeService.delEdgeByNode(name,cid);
-
+        nodeRepository.flush();
     }
 
     @Override
     public void update(Node node){
-//        System.out.println("update");
+        nodeRepository.saveAndFlush(node);
+        System.out.println(node);
     }
 }

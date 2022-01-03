@@ -46,4 +46,19 @@ public class EdgeHandler {
         edgeService.delEdge(edge_Id);
         return ResponseVO.buildSuccess();
     }
+
+    @PostMapping("/update")
+    public ResponseVO update(@RequestBody JSONObject jsonObject){
+      System.out.println(jsonObject);
+      Edge edge=new Edge();
+      JSONObject data=(JSONObject) JSONObject.toJSON(jsonObject.get("data"));
+
+      edge.setClasses(jsonObject.get("classes").toString());
+      edge.setName(data.get("name").toString());
+      edge.setSource(data.get("source").toString());
+      edge.setTarget(data.get("target").toString());
+      edge.setCid((Integer)jsonObject.get("chartId"));
+      edgeService.updateEdge(edge);
+      return ResponseVO.buildSuccess(edge);
+    }
 }

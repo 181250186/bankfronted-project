@@ -16,8 +16,8 @@ CREATE TABLE  `node`(
                       `cid` int(10) not null,
                       `name` varchar(100) not null,
                       `classes` varchar(255) not null,
-                      `positionX` int(10),
-                      `positionY` int(10),
+                      `positionX` float,
+                      `positionY` float,
                       PRIMARY KEY(`nid`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 

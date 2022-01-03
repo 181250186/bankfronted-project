@@ -24,7 +24,7 @@ public class Node {
     @Column(name="classes")
     private  String classes;
     @Column(name="positionX")
-    private  Integer positionX;
+    private  Double positionX;
     @Column(name="positionY")
-    private  Integer positionY;
+    private  Double positionY;
 }

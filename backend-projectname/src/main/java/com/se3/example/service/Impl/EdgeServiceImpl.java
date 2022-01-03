@@ -21,6 +21,7 @@ public class EdgeServiceImpl implements EdgeService {
 //        System.out.println("come");
 //        System.out.println(edge);
         edgeRepository.save(edge);
+        edgeRepository.flush();
     }
 
    @Override
@@ -36,6 +37,7 @@ public class EdgeServiceImpl implements EdgeService {
     @Override
     public void delEdge(Integer eid){
         edgeRepository.deleteById(eid);
+        edgeRepository.flush();
     }
 
     @Override
@@ -52,6 +54,12 @@ public class EdgeServiceImpl implements EdgeService {
             edgeRepository.deleteById(edgesT.get(i).getEid());
         }
 //        System.out.println("edges over");
+        edgeRepository.flush();
+    }
 
+    @Override
+  public void updateEdge(Edge edge){
+      edgeRepository.saveAndFlush(edge);
+      System.out.println(edge);
     }
 }
